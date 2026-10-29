@@ -1,0 +1,59 @@
+[project]
+name = "sdoc-hackathon"
+version = "0.10.0"
+description = "Shipping document verification pipeline for the SDOC hackathon."
+authors = [
+    {name = "bubble-guppy",email = "bubble-guppy@example.com"}
+]
+license = "BSD-3-Clause"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.141.1",
+    "google-cloud-firestore>=2.31.0",
+    "google-cloud-storage>=2.19.0",
+    "google-genai>=2.24.0",
+    "openpyxl>=3.1.5",
+    "pymupdf>=1.28.2",
+    "python-docx>=1.2.0",
+    "python-dotenv>=1.2.3",
+    "uvicorn>=0.53.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1,<10.0.0",
+    "ruff>=0.15.17,<0.16.0",
+    "pre-commit>=4.6.0,<5.0.0",
+    "pyright>=1.1.410,<2.0.0",
+    "pytest-cov>=7.1.0,<8.0.0",
+    "httpx>=0.28.1",
+]
+
+docs = [
+    "mkdocs",
+    "mkdocstrings[python]",
+    "mkdocs-material"
+]
+
+
+[tool.coverage.run]
+source = ["src/sdoc_hackathon"]
+omit = [
+    "tests/*",
+    "conftest.py"
+]
+
+[tool.ruff]
+extend-exclude = ["sdoc-hackathon-bundle", "sdoc-hackathon-docker"]
+
+[tool.pyright]
+exclude = [".venv/**", "sdoc-hackathon-bundle/**", "sdoc-hackathon-docker/**"]
+
+[build-system]
+requires = ["uv-build>=0.11.29,<1.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "sdoc_hackathon"
+module-root = "src"

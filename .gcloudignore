@@ -1,0 +1,16 @@
+# Cloud Build upload context exclusions (issue 52).
+# `gcloud builds submit .` uploads everything NOT excluded here; the
+# evaluation kit holds the answer key and must never reach a staging bucket.
+.git/
+.gitignore
+.env*
+node_modules/
+ui/dist/
+__pycache__/
+*.py[cod]
+*.log
+.demo-logs/
+.pytest_cache/
+.venv/
+# The evaluation kit (answer key) is never uploaded or built.
+sdoc-hackathon-docker/

@@ -1,0 +1,82 @@
+site_name: SDOC Hackathon — Shipping Document Verification
+repo_url: https://github.com/bubble-guppy/sdoc-hackathon
+repo_name: bubble-guppy/sdoc-hackathon
+
+theme:
+  name: "material"
+  palette:
+  # Palette toggle for light mode
+    - scheme: default
+      primary: black
+      accent: purple
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: black
+      accent: purple
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  icon:
+    logo: simple/rocket
+
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.footer
+
+plugins:
+  - mkdocstrings:
+      default_handler: python
+      locale: en
+      handlers:
+        python:
+          options:
+            show_source: true
+            show_root_heading: true      # shows module name as heading
+            show_root_full_path: true    # gives full module path
+  - search
+  - tags
+
+nav:
+  - Home: index.md
+  - Tutorials:
+      - From clone to scored submission: tutorials/index.md
+  - How-To:
+      - Overview: how-to/index.md
+      - GCP setup: how-to/gcp-setup.md
+  - Reference:
+      - Overview: reference/index.md
+      - Package: reference/package.md
+      - Models & contracts: reference/models.md
+      - Trace: reference/trace.md
+      - Classification: reference/classify.md
+      - Parsers: reference/parsers.md
+      - Extract: reference/extract.md
+      - Compare: reference/compare.md
+      - Review: reference/review.md
+      - Pipeline: reference/pipeline.md
+      - Gemini OCR & translation: reference/llm.md
+      - Submission: reference/submission.md
+      - Demo bridge API: reference/bridge.md
+      - Resolve & mailer: reference/resolve.md
+      - CLI: reference/cli.md
+  - Explanation:
+      - Overview: explanation/index.md
+      - Email classification in plain English: explanation/classification-in-plain-english.md
+      - Scoring and the reliability axis: explanation/scoring-and-reliability.md
+      - The demo dashboard: explanation/demo-dashboard.md
+      - Evaluation report 2026-09-19: explanation/eval-report-2026-09-19.md
+  - Architecture:
+      - Overview: architecture/index.md
+      - ADRs: architecture/adr/index.md
+      - ADR-0008 multilingual strategy: architecture/adr/0008-multilingual-llm-label-translation.md
+  - Tags: tags.md
+
+extra_javascript:
+    - javascript/readthedocs.js
